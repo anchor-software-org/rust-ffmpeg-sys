@@ -1630,6 +1630,7 @@ fn main() {
     let mut builder = bindgen::Builder::default()
         // Shim dir first, so our stubs win over the real SDK headers on the path (by design, to avoid generating bindings for full SDKs).
         .clang_arg(&hwcontext_stub_dir)
+        .clang_arg("-fno-builtin")
         .clang_args(clang_includes)
         .ctypes_prefix("libc")
         // https://github.com/rust-lang/rust-bindgen/issues/550
