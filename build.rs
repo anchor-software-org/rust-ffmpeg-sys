@@ -1825,6 +1825,7 @@ fn main() {
         .header(search_include(&include_paths, "libavutil/samplefmt.h"))
         .header(search_include(&include_paths, "libavutil/sha.h"))
         .header(search_include(&include_paths, "libavutil/sha512.h"))
+        .header(search_include(&include_paths, "libavutil/spherical.h"))
         .header(search_include(&include_paths, "libavutil/stereo3d.h"))
         .header(search_include(&include_paths, "libavutil/avstring.h"))
         .header(search_include(&include_paths, "libavutil/threadmessage.h"))
