@@ -545,6 +545,11 @@ fn build(sysroot: Option<&str>) -> io::Result<()> {
     // do not generate documentation
     configure.arg("--disable-doc");
 
+    println!("cargo:rerun-if-env-changed=FFMPEG_SYS_NEXT_CONFIGURE_ARGS");
+    if let Ok(args) = env::var("FFMPEG_SYS_NEXT_CONFIGURE_ARGS") {
+        configure.args(args.split_whitespace());
+    }
+
     macro_rules! enable {
         ($conf:expr, $feat:expr, $name:expr) => {
             if env::var(concat!("CARGO_FEATURE_", $feat)).is_ok() {
